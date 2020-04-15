@@ -40,6 +40,7 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
 
   setwd(wd)
   if (missing(rdata)) rdata <- makeRdata(wd, remote=F, reportType)
+  print(rdata)
 
   #get elapsed time if available
   if (file.exists("time.txt")) {
@@ -88,6 +89,7 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
   # errfile <- list.files(pattern = "^ERROR")
   error <- length(errfile) > 0
   # #see if NP_RF or IT_RF made anyway (i.e. is >1MB in size)
+  print(rdata$success)
   success <- rdata$success
   # success <- file.info(c("NP_RF0001.TXT", "IT_RF0001.TXT")[reportType])$size >= 1000
 
