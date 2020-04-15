@@ -235,7 +235,9 @@
   ode <- c(0, 10 ** ode)
 
   #generate the names of the permanent modules
-  if (parallel) { prefix <- "p" } else { prefix <- "s" }
+ print("----parallel----")
+ print(parallel)
+ if (parallel) { prefix <- "p" } else { prefix <- "s" }
   #add the correct switch for NPAG engine, always serial for IT2B and ERR
   prepfiles <- shQuote(normalizePath(list.files(fortSource,
                                                 pattern = switch(type, NPAG = "sNPprep", IT2B = "sITprep", ERR = "sITprep"), full.names = T)))
@@ -460,6 +462,9 @@
 
 
     f <- file(c(scriptFileName, paste(scriptFileName, ".bat", sep = ""), scriptFileName)[OS], "w")
+    print("PMscript file" )
+    print(scriptFileName)
+
     writeLines(PMscript, f)
     close(f)
 
@@ -482,8 +487,11 @@
       #Linux
       system(paste("chmod +x ", scriptFileName))
       #if (!batch) system(paste("openvt ", shQuote(paste(getwd(), "./", scriptFileName, sep = "")), sep = ""))
-      system(paste0("./", scriptFileName, " &"))
+      #Execute the script outside the Rscript
+      #system(paste0("./", scriptFileName, " &"))
     }
+    print("currwd 2")
+    print(currwd)
     setwd(currwd)
     return(outpath)
 
