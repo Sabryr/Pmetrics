@@ -88,14 +88,9 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
   # errfile <- list.files(pattern = "^ERROR")
   error <- length(errfile) > 0
   # #see if NP_RF or IT_RF made anyway (i.e. is >1MB in size)
-  print("rdata$success")
-  print(rdata$success)
   success <- rdata$success
 
   # success <- file.info(c("NP_RF0001.TXT", "IT_RF0001.TXT")[reportType])$size >= 1000
-
-  print("success 1")
-  print(success)
 
   if (success) {
 
@@ -527,6 +522,8 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
 
 makeRdata <- function(wd, remote, reportType = 1) {
   setwd(wd)
+  print(Current working directory)
+  print(wd)
   errfile <- list.files(pattern = "^ERROR")
   #error <- length(errfile) > 0
   #see if NP_RF or IT_RF made anyway (i.e. is >1MB in size)
