@@ -522,7 +522,7 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
 
 makeRdata <- function(wd, remote, reportType = 1) {
   setwd(wd)
-  print(Current working directory)
+  print("Current working directory")
   print(wd)
   errfile <- list.files(pattern = "^ERROR")
   #error <- length(errfile) > 0
