@@ -34,7 +34,11 @@
 
 PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
   #1 for NPAG, 2 for IT2B, 1 for anything else
+  print("type")
+  print(type)
   reportType <- switch(type, NPAG = 1, IT2B = 2, 1)
+  print("reportType")
+  print(reportType)
 
   #checkRequiredPackages("xtable")
 
