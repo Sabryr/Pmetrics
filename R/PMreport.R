@@ -532,7 +532,7 @@ makeRdata <- function(wd, remote, reportType = 1) {
   #error <- length(errfile) > 0
   #see if NP_RF or IT_RF made anyway (i.e. is >1MB in size)
   success <- file.info(c("NP_RF0001.TXT", "IT_RF0001.TXT")[reportType])$size >= 1000
-  print("success 2 ")
+  print("success 2.1 ")
   print(success)
   print("reportType")
   print(reportType)
