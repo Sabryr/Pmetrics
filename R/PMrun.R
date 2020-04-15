@@ -25,6 +25,9 @@
   }
   dir.create(newdir)
 
+  print("currwd")
+  print(currwd)
+
   setwd(currwd)
   setwd(newdir) #move to the new directory and do each run there (compatible with batching)
 
@@ -643,6 +646,8 @@
     if (type == "ERR") { ERRreport(paste(currwd, newdir, "outputs", sep = "/"), icen = icen, type = type) }
 
     #final clean up
+    print("currwd")
+    print(currwd)
     setwd(currwd)
     file.copy(from = Sys.glob("*.*"), to = "inputs")
     file.remove(Sys.glob("*.*"))
