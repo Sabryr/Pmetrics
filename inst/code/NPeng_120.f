@@ -2,7 +2,6 @@
      $                   BETA, C, LDC )
       CHARACTER*1        TRANSA, TRANSB
       INTEGER            M, N, K, LDA, LDB, LDC
-      REAL*8             THESAME
       DOUBLE PRECISION   ALPHA, BETA
       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * )
       LOGICAL            LSAME
