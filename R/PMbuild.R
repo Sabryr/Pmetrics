@@ -31,9 +31,13 @@ PMbuild <- function() {
     #try again just in case redefined
     compiler <- PMFortranConfig()
     #check if parallel is possible
+    print("compiler")
+    print(compiler)
     if (length(compiler) == 2 & getBits() == "64") {
       parallel <- T
     } else { parallel <- F }
+    print("is pararrel in PMbuild")
+    print(parallel)
     sourcedir <- system.file("code", package = "Pmetrics")
     destdir <- paste(system.file("", package = "Pmetrics"), "compiledFortran", sep = "/")
     #remove old files if present
@@ -74,6 +78,7 @@ PMbuild <- function() {
         # parallel compilation for NPAG only
         parallelCommand <- sub("<exec>", paste("p", PMfiles$filename[i], ".o -c", sep = ""), compiler[2])
         parallelCommand <- sub("<files>", PMfiles$path[i], parallelCommand)
+        print(parallelCommand)
         parallelFortstatus <- suppressWarnings(system(parallelCommand, intern = T, ignore.stderr = F))
         if (!is.null(attr(parallelFortstatus, "status"))) {
           unlink(switch(OS, "~/.config/Pmetrics",
