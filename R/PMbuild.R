@@ -67,6 +67,9 @@ PMbuild <- function() {
         serialCommand <- sub("<exec>", paste("s", PMfiles$filename[i], ".o -c", sep = ""), compiler[1])
         serialCommand <- sub("<files>", PMfiles$path[i], serialCommand)
       }
+      print("---")
+      print(parallelCommand)
+      print("---")
       serialFortstatus <- suppressWarnings(system(serialCommand, intern = T, ignore.stderr = F))
       if (!is.null(attr(serialFortstatus, "status"))) {
         unlink(switch(OS, "~/.config/Pmetrics",
@@ -78,7 +81,9 @@ PMbuild <- function() {
         # parallel compilation for NPAG only
         parallelCommand <- sub("<exec>", paste("p", PMfiles$filename[i], ".o -c", sep = ""), compiler[2])
         parallelCommand <- sub("<files>", PMfiles$path[i], parallelCommand)
+        print("---")
         print(parallelCommand)
+        print("---")
         parallelFortstatus <- suppressWarnings(system(parallelCommand, intern = T, ignore.stderr = F))
         if (!is.null(attr(parallelFortstatus, "status"))) {
           unlink(switch(OS, "~/.config/Pmetrics",
