@@ -68,7 +68,7 @@ PMbuild <- function() {
         serialCommand <- sub("<files>", PMfiles$path[i], serialCommand)
       }
       print("---")
-      print(parallelCommand)
+      print(serialCommand)
       print("---")
       serialFortstatus <- suppressWarnings(system(serialCommand, intern = T, ignore.stderr = F))
       if (!is.null(attr(serialFortstatus, "status"))) {
