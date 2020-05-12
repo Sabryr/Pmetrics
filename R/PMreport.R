@@ -95,7 +95,8 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
   error <- length(errfile) > 0
   # #see if NP_RF or IT_RF made anyway (i.e. is >1MB in size)
   success <- rdata$success
-
+  print("success 2")
+  print(success)
   # success <- file.info(c("NP_RF0001.TXT", "IT_RF0001.TXT")[reportType])$size >= 1000
 
   if (success) {
@@ -314,6 +315,8 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
     close(.HTMLfile)
 
     ####### TEX section ###############
+    print("success 3")
+    print(success)
     if (success) {
       #open TEX file 
       TEXfileName <- paste(getwd(), c("/NPAGreport.tex", "/IT2Breport.tex")[reportType], sep = "")
@@ -403,6 +406,8 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
           TEX(" $\\cdot$ \\hyperlink{tableofcontents}{Back to Contents} $\\cdot$ \\hyperlink{ppe}{Next Section} \\newline
           \\newline")
           s1 <- final$popPoints
+          print("s1 for xtable::xtable")
+          print(s1)
           tab1 <- xtable::xtable(s1)
           # if (xtable.installed) { tab1 <- xtable(s1) } else { tab1 <- "Package xtable not installed" }
           print(tab1, file = .TEXfile, append = T, floating = FALSE)
