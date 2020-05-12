@@ -45,8 +45,6 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
   setwd(wd)
   if (missing(rdata)) rdata <- makeRdata(wd, remote=F, reportType)
   
-  print("rdata")
-  print(rdata)
   #get elapsed time if available
   if (file.exists("time.txt")) {
     execTime <- readLines("time.txt")
@@ -536,6 +534,9 @@ makeRdata <- function(wd, remote, reportType = 1) {
   print("reportType")
   print(reportType)
 
+  print("success")
+  print(success)
+
   if (success) {
     #run completed
     #open and parse the output
@@ -551,6 +552,8 @@ makeRdata <- function(wd, remote, reportType = 1) {
     }
     cat("\n\n")
     flush.console()
+    print("PMdata")
+    print(PMdata)
     if (is.null(PMdata$nranfix)) PMdata$nranfix <- 0
     op <- suppressWarnings(tryCatch(makeOP(PMdata), error = function(e) { e <- NULL; cat("\nWARNING: error in extraction of observed vs. population predicted data; 'PMop' object not saved.\n\n") }))
     cycle <- suppressWarnings(tryCatch(makeCycle(PMdata), error = function(e) { e <- NULL; cat("\nWARNING: error in extraction of cycle information; 'PMcycle' object not saved.\n\n") }))
