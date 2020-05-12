@@ -43,8 +43,10 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
   #checkRequiredPackages("xtable")
 
   setwd(wd)
+  print("is Rdata missing")
+  print(missing(rdata))
   if (missing(rdata)) rdata <- makeRdata(wd, remote=F, reportType)
-  
+  print("rdata created")
   #get elapsed time if available
   if (file.exists("time.txt")) {
     execTime <- readLines("time.txt")
