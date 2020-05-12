@@ -408,9 +408,9 @@ PMreport <- function(wd, rdata, icen = "median", type = "NPAG", parallel = F) {
           s1 <- final$popPoints
           print("s1 for xtable::xtable")
           print(s1)
-          tab1 <- xtable::xtable(s1)
+          #tab1 <- xtable::xtable(s1)
           # if (xtable.installed) { tab1 <- xtable(s1) } else { tab1 <- "Package xtable not installed" }
-          print(tab1, file = .TEXfile, append = T, floating = FALSE)
+          print(s1, file = .TEXfile, append = T, floating = FALSE)
         }
 
         #popparam
