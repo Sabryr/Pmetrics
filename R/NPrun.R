@@ -95,7 +95,8 @@ NPrun <- function(model = "model.txt", data = "data.csv", run,
                   idelta = 12, prior,
                   auto = T, intern = F, silent = F, overwrite = F, nocheck = F, parallel = NA, 
                   alq = F, remote = F, server_address) {
-   print(paste("ode =", ode, "  tol = ", tol))
+
+  print(paste("From  NPRUN ode =", ode, "  tol = ", tol, " parallel ",parallel))
   if (missing(run)) run <- NULL
   if (missing(include)) include <- NULL
   if (missing(exclude)) exclude <- NULL
