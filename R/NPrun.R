@@ -110,7 +110,7 @@ NPrun <- function(model = "model.txt", data = "data.csv", run,
     return(.PMremote_run(model = model, data = data, server_address = server_address, run, overwrite))
   } else {
     return(.PMrun(type = "NPAG", model = model, data = data, run = run,
-          include = include, exclude = exclude, ode = ode, tol = tol, salt = salt, cycles = cycles,
+          include = include, exclude = exclude, ode = as.numeric(ode), tol = as.numeric(tol), salt = salt, cycles = cycles,
           indpts = indpts, icen = icen, aucint = aucint,
           idelta = idelta, prior = prior,
           auto = auto, intern = intern, silent = silent, overwrite = overwrite, nocheck = nocheck, parallel = parallel, batch = batch,
