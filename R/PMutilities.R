@@ -1292,6 +1292,8 @@ makeModel <- function(model = "model.txt", data = "data.csv", engine, write = T,
       if (length(valranfix) > 1) { instr[getNext(instr)] <- paste(valranfix, collapse = "    ") } else { instr[getNext(instr)] <- valranfix }
     }
     instr[getNext(instr)] <- " O.D.E. TOLERANCE"
+    print(paste('PMutils ode ', engine$ode))
+    print(paste('PMutils engine ', engine))
     instr[getNext(instr)] <- 10 ** engine$ode
     instr[getNext(instr)] <- " IFORMT"
     if (!engine$wrkFlag) {
