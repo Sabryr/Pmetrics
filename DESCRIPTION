@@ -17,11 +17,11 @@ Description: Parametric and non-parametric
     which used to be available on CRAN.
 Authors@R: person("Michael", "Neely",
     email = "mneely@usc.edu", role = c("aut", "cre"))
-Version: 1.9.3
+Version: 1.9.3.2
 URL: http://www.lapk.org
-Date: 2020-02-29
+Date: 2020-05-20
 Depends: 
-    R (>= 3.5.0)
+    R (>= 3.6.0)
 Imports:
     askpass,
     base64enc,
